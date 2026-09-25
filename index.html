@@ -64,7 +64,7 @@
             letter-spacing: -.5px
         }
 
-        .logo-mark {
+        /* .logo-mark {
             width: 39px;
             height: 39px;
             border-radius: 11px;
@@ -75,8 +75,23 @@
             font-weight: 900;
             font-size: 23px;
             box-shadow: 0 8px 22px rgba(21, 80, 216, .25)
-        }
+        } */
+         .logo {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 62px;
+    flex: 0 0 180px;
+    text-decoration: none;
+}
 
+.logo-image {
+    display: block;
+    width: 180px;
+    height: 62px;
+    object-fit: contain;
+    object-position: left center;
+}
         .logo small {
             display: block;
             font-size: 8px;
@@ -760,6 +775,17 @@
                 font-size: 25px
             }
 
+            .logo {
+                width: 155px;
+                height: 56px;
+                flex-basis: 155px;
+            }
+
+            .logo-image {
+                width: 155px;
+                height: 56px;
+            }
+
             .stats-grid,
             .founders,
             .cards,
@@ -805,8 +831,9 @@
 
     <header>
         <div class="container nav">
-            <a href="#home" class="logo"><span
-                    class="logo-mark">M</span><span>Mavionix<small>TECHNOLOGIES</small></span></a>
+       <a href="#home" class="logo" aria-label="Mavionix Technologies Home">
+    <img class="logo-image" src="mavionix-logo.png" alt="Mavionix Technologies">
+</a>
             <nav>
                 <a href="#home">Home</a><a href="#about">About Us</a><a href="#products">Products & Clients</a><a
                     href="#contact">Contact Us</a>
@@ -942,7 +969,7 @@
 
                     <div class="card">
                         <div class="card-top">
-                            <h3>Chetwan</h3><span class="tag">CLIENT PROJECT</span>
+                            <h3>Astro User</h3><span class="tag">CLIENT PROJECT</span>
                         </div>
                         <p>Development and maintenance work for a client application ecosystem across Android and web.
                         </p>
@@ -1032,7 +1059,7 @@
                         <p>Have a software idea, an existing application that needs maintenance, or a business process
                             that needs automation? Talk to us.</p>
                         <div class="info">
-                            <div>✉️ infomavionix.gmail.com</div>
+                            <div>✉️ infomavionix@gmail.com</div>
                             <div>📞 +91 8152974486</div>
                             <div>📍 Bengaluru, Karnataka, India</div>
                         </div>
