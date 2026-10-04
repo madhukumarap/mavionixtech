@@ -1190,17 +1190,69 @@
 
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-  document.getElementById("contactForm").addEventListener("submit", function(e){
+  document.getElementById("contactForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    // Replace this demo handler with your CRM/backend endpoint before production.
-    const data = Object.fromEntries(new FormData(this).entries());
+    const form = this;
+    const button = form.querySelector("button[type='submit']");
+    const originalText = button.textContent;
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
     console.log("Contact enquiry:", data);
 
-    toast.style.display = "block";
-    this.reset();
-    setTimeout(() => toast.style.display = "none", 3500);
-  });
+    try {
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        const response = await fetch("https://sitebackend-five.vercel.app/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+                company: data.company,
+                service: data.service,
+                message: data.message
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "Failed to send enquiry");
+        }
+
+        // Success
+        toast.textContent = "Thank you! Your enquiry has been sent successfully.";
+        toast.style.display = "block";
+
+        form.reset();
+
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, 3500);
+
+    } catch (error) {
+
+        console.error("Contact API error:", error);
+
+        toast.textContent =
+            "Unable to send your enquiry. Please try again later.";
+
+        toast.style.display = "block";
+
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, 3500);
+
+    } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+    }
+});
 </script>
 </body>
 </html>
