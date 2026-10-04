@@ -1,1179 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mavionix Technologies | Software Solutions</title>
-    <meta name="description"
-        content="Mavionix Technologies - Service-based software company delivering web, mobile, cloud, API and AI solutions.">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        body {
-            font-family: Inter, Segoe UI, Arial, sans-serif;
-            color: #14213d;
-            background: #f7faff;
-            line-height: 1.6
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit
-        }
-
-        button {
-            font: inherit
-        }
-
-        .container {
-            width: min(1120px, 92%);
-            margin: auto
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, .94);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e7edf6
-        }
-
-        .nav {
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            font-size: 21px;
-            letter-spacing: -.5px
-        }
-
-        /* .logo-mark {
-            width: 39px;
-            height: 39px;
-            border-radius: 11px;
-            background: linear-gradient(135deg, #087df0, #1550d8);
-            display: grid;
-            place-items: center;
-            color: white;
-            font-weight: 900;
-            font-size: 23px;
-            box-shadow: 0 8px 22px rgba(21, 80, 216, .25)
-        } */
-         .logo {
-    display: flex;
-    align-items: center;
-    width: 180px;
-    height: 62px;
-    flex: 0 0 180px;
-    text-decoration: none;
-}
-
-.logo-image {
-    display: block;
-    width: 180px;
-    height: 62px;
-    object-fit: contain;
-    object-position: left center;
-}
-        .logo small {
-            display: block;
-            font-size: 8px;
-            letter-spacing: 3px;
-            color: #71809b;
-            margin-top: -3px
-        }
-
-        nav {
-            display: flex;
-            gap: 30px
-        }
-
-        nav a {
-            font-size: 14px;
-            font-weight: 650;
-            color: #35425a;
-            transition: .2s
-        }
-
-        nav a:hover {
-            color: #087df0
-        }
-
-        .hero {
-            min-height: 520px;
-            background: radial-gradient(circle at 85% 15%, rgba(25, 132, 245, .22), transparent 30%), linear-gradient(120deg, #061a31, #0a2c4e 55%, #08213c);
-            color: white;
-            display: flex;
-            align-items: center
-        }
-
-        .hero-content {
-            padding: 85px 0
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 7px 13px;
-            border: 1px solid rgba(255, 255, 255, .2);
-            border-radius: 30px;
-            background: rgba(255, 255, 255, .07);
-            font-size: 12px;
-            margin-bottom: 20px
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 6vw, 64px);
-            line-height: 1.06;
-            max-width: 760px;
-            letter-spacing: -2px
-        }
-
-        .hero h1 span {
-            color: #20a0ff
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: #c9d8e8;
-            margin: 22px 0 30px;
-            font-size: 17px
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            border-radius: 10px;
-            background: #118cf2;
-            color: #fff;
-            border: 0;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(17, 140, 242, .22)
-        }
-
-        .btn.secondary {
-            background: white;
-            color: #1262c7;
-            box-shadow: none;
-            border: 1px solid #cfe0f5
-        }
-
-        .stats {
-            margin-top: -42px;
-            position: relative;
-            z-index: 2
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            background: white;
-            border-radius: 18px;
-            box-shadow: 0 18px 45px rgba(18, 48, 90, .12);
-            border: 1px solid #e7eef8;
-            overflow: hidden
-        }
-
-        .stat {
-            padding: 25px 22px;
-            border-right: 1px solid #edf1f7
-        }
-
-        .stat:last-child {
-            border: 0
-        }
-
-        .icon {
-            font-size: 24px;
-            margin-bottom: 8px
-        }
-
-        .stat h3 {
-            font-size: 15px
-        }
-
-        .stat p {
-            font-size: 12px;
-            color: #71809b
-        }
-
-        section {
-            padding: 90px 0
-        }
-
-        .section-head {
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 45px
-        }
-
-        .kicker {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #087df0;
-            text-transform: uppercase
-        }
-
-        .section-head h2 {
-            font-size: 36px;
-            line-height: 1.15;
-            margin: 9px 0 12px;
-            letter-spacing: -1px
-        }
-
-        .section-head p {
-            color: #6d7b91
-        }
-
-        .about {
-            background: white
-        }
-
-        .founders {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px
-        }
-
-        .person {
-            background: #f9fbff;
-            border: 1px solid #e3ebf6;
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            gap: 22px;
-            align-items: flex-start
-        }
-
-        .avatar {
-            width: 92px;
-            height: 92px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #d9ecff, #eef5ff);
-            display: grid;
-            place-items: center;
-            font-size: 29px;
-            font-weight: 800;
-            color: #087df0;
-            flex: none
-        }
-
-        .person h3 {
-            font-size: 21px
-        }
-
-        .role {
-            color: #087df0;
-            font-weight: 700;
-            font-size: 13px;
-            margin: 3px 0 10px
-        }
-
-        .person p {
-            font-size: 14px;
-            color: #66758d
-        }
-
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-            margin-top: 28px
-        }
-
-        .highlight {
-            padding: 20px;
-            border-radius: 15px;
-            background: white;
-            border: 1px solid #e5edf7
-        }
-
-        .highlight b {
-            display: block;
-            margin: 8px 0 4px
-        }
-
-        .highlight span {
-            font-size: 12px;
-            color: #738198
-        }
-
-        .products {
-            background: #f7faff
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px
-        }
-
-        .card {
-            background: white;
-            border: 1px solid #e1eaf5;
-            border-radius: 18px;
-            padding: 25px;
-            transition: .2s
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(20, 55, 100, .1)
-        }
-
-        .card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 13px
-        }
-
-        .card h3 {
-            font-size: 18px
-        }
-
-        .tag {
-            font-size: 10px;
-            font-weight: 800;
-            padding: 5px 8px;
-            border-radius: 20px;
-            background: #e8f5ff;
-            color: #087df0;
-            white-space: nowrap
-        }
-
-        .card p {
-            font-size: 13px;
-            color: #68778e;
-            margin-bottom: 15px
-        }
-
-        .card ul {
-            list-style: none;
-            margin-bottom: 18px
-        }
-
-        .card li {
-            font-size: 12px;
-            color: #4f6078;
-            margin: 7px 0
-        }
-
-        .card li:before {
-            content: "✓";
-            color: #087df0;
-            font-weight: 800;
-            margin-right: 7px
-        }
-
-        .card .btn {
-            font-size: 12px;
-            padding: 9px 13px
-        }
-
-        .pingo {
-            background: #061a31;
-            color: white
-        }
-
-        .pingo .section-head p {
-            color: #b9c9db
-        }
-
-        .pingo-box {
-            display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 30px;
-            align-items: center
-        }
-
-        .pingo-copy h3 {
-            font-size: 32px;
-            margin: 8px 0 14px
-        }
-
-        .pingo-copy p {
-            color: #c4d3e3
-        }
-
-        .api-box {
-            background: #0b2948;
-            border: 1px solid #1d4569;
-            border-radius: 18px;
-            padding: 25px
-        }
-
-        .api-line {
-            background: #061a31;
-            border-radius: 10px;
-            padding: 14px;
-            color: #9ed8ff;
-            font-family: Consolas, monospace;
-            font-size: 12px;
-            overflow: auto
-        }
-
-        .contact {
-            background: white
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #071c34, #0a3154);
-            color: white;
-            border-radius: 22px;
-            padding: 35px
-        }
-
-        .contact-info h2 {
-            font-size: 35px;
-            line-height: 1.15;
-            margin: 10px 0 15px
-        }
-
-        .contact-info p {
-            color: #c7d6e5
-        }
-
-        .info {
-            margin-top: 25px;
-            display: grid;
-            gap: 14px
-        }
-
-        .info div {
-            padding: 12px 14px;
-            background: rgba(255, 255, 255, .06);
-            border-radius: 10px
-        }
-
-        .form {
-            padding: 30px;
-            border: 1px solid #e2eaf4;
-            border-radius: 22px;
-            background: #fbfdff
-        }
-
-        .form h3 {
-            margin-bottom: 18px
-        }
-
-        .form input,
-        .form textarea {
-            width: 100%;
-            padding: 13px 14px;
-            margin-bottom: 12px;
-            border: 1px solid #dbe5f0;
-            border-radius: 9px;
-            outline: none;
-            font: inherit
-        }
-
-        .form textarea {
-            height: 130px;
-            resize: vertical
-        }
-
-        .form input:focus,
-        .form textarea:focus {
-            border-color: #087df0
-        }
-
-        footer {
-            background: #041326;
-            color: #aebed0;
-            padding: 24px 0;
-            font-size: 12px
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px
-        }
-
-        .mobile-menu {
-            display: none
-        }
-
-        .toast {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            background: #0b2440;
-            color: white;
-            padding: 13px 18px;
-            border-radius: 10px;
-            display: none;
-            z-index: 200;
-            box-shadow: 0 10px 30px #0003
-        }
-
-
-        /* ===== Mavionix motion & interaction layer ===== */
-        :root { --mx-blue:#087df0; --mx-cyan:#20a0ff; }
-
-        body { overflow-x:hidden; }
-        body::before{
-            content:"";
-            position:fixed;
-            inset:0;
-            pointer-events:none;
-            z-index:9999;
-            opacity:0;
-            background:radial-gradient(circle at var(--mx-x,50%) var(--mx-y,50%),rgba(32,160,255,.09),transparent 18%);
-            transition:opacity .25s ease;
-        }
-        body.cursor-glow::before{opacity:1}
-
-        .page-progress{
-            position:fixed;left:0;top:0;height:3px;width:0;z-index:10001;
-            background:linear-gradient(90deg,#087df0,#20a0ff,#6be7ff);
-            box-shadow:0 0 14px rgba(32,160,255,.7);
-        }
-
-        header{transition:box-shadow .35s ease,background .35s ease,transform .35s ease}
-        header.scrolled{box-shadow:0 10px 35px rgba(7,38,73,.10);background:rgba(255,255,255,.88)}
-
-        .logo-mark{
-            position:relative;overflow:hidden;
-            animation:logoFloat 4s ease-in-out infinite;
-        }
-        .logo-mark::after{
-            content:"";position:absolute;inset:-70%;
-            background:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.7) 50%,transparent 58%);
-            transform:translateX(-55%) rotate(12deg);
-            animation:logoShine 4.5s ease-in-out infinite;
-        }
-
-        .hero{position:relative;overflow:hidden}
-        .hero::before,.hero::after{
-            content:"";position:absolute;border-radius:50%;pointer-events:none;filter:blur(1px);
-        }
-        .hero::before{
-            width:420px;height:420px;right:-130px;top:-170px;
-            background:radial-gradient(circle,rgba(32,160,255,.20),transparent 68%);
-            animation:orb 9s ease-in-out infinite;
-        }
-        .hero::after{
-            width:280px;height:280px;left:-120px;bottom:-150px;
-            background:radial-gradient(circle,rgba(0,117,255,.14),transparent 68%);
-            animation:orb 11s ease-in-out infinite reverse;
-        }
-        .hero-content{position:relative;z-index:1}
-        .hero .badge{animation:fadeUp .8s .05s both}
-        .hero h1{animation:fadeUp .8s .15s both}
-        .hero p{animation:fadeUp .8s .28s both}
-        .hero .btn{animation:fadeUp .8s .4s both}
-
-        .btn{
-            position:relative;overflow:hidden;
-            transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
-        }
-        .btn::after{
-            content:"";position:absolute;top:-80%;left:-35%;width:24%;height:260%;
-            background:rgba(255,255,255,.35);transform:rotate(25deg) translateX(-160%);
-            transition:transform .65s ease;
-        }
-        .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,140,242,.30)}
-        .btn:hover::after{transform:rotate(25deg) translateX(700%)}
-
-        .stats{animation:statsIn .9s .25s both}
-        .stat{transition:transform .3s ease,background .3s ease}
-        .stat:hover{transform:translateY(-5px);background:#fbfdff}
-        .stat .icon{transition:transform .35s ease;color:var(--mx-blue)}
-        .stat:hover .icon{transform:translateY(-4px) scale(1.12) rotate(-4deg)}
-
-        .section-head .kicker{opacity:0;transform:translateY(14px);transition:.65s ease}
-        .section-head h2,.section-head p{opacity:0;transform:translateY(18px);transition:.7s ease}
-        .reveal.is-visible .kicker,.reveal.is-visible .section-head .kicker,
-        .section-head.is-visible .kicker{opacity:1;transform:none}
-        .section-head.is-visible h2,.section-head.is-visible p{opacity:1;transform:none}
-        .section-head.is-visible p{transition-delay:.1s}
-
-        .person,.highlight,.card{
-            opacity:0;transform:translateY(30px);
-            transition:opacity .65s ease,transform .65s ease,box-shadow .3s ease,border-color .3s ease;
-        }
-        .person.is-visible,.highlight.is-visible,.card.is-visible{opacity:1;transform:none}
-        .person:nth-child(2),.highlight:nth-child(2),.card:nth-child(2){transition-delay:.08s}
-        .highlight:nth-child(3),.card:nth-child(3){transition-delay:.16s}
-        .highlight:nth-child(4),.card:nth-child(4){transition-delay:.24s}
-        .card:nth-child(5){transition-delay:.32s}.card:nth-child(6){transition-delay:.40s}
-
-        .person{position:relative;overflow:hidden}
-        .person::before{
-            content:"";position:absolute;width:120px;height:120px;border-radius:50%;
-            right:-50px;top:-50px;background:rgba(8,125,240,.07);
-            transition:transform .45s ease;
-        }
-        .person:hover::before{transform:scale(2.1)}
-        .person:hover{border-color:#bcdcff;box-shadow:0 18px 45px rgba(18,72,130,.10);transform:translateY(-6px)}
-        .avatar{transition:transform .4s ease,box-shadow .4s ease}
-        .person:hover .avatar{transform:scale(1.06) rotate(-3deg);box-shadow:0 12px 28px rgba(8,125,240,.18)}
-
-        .highlight{transition-duration:.5s}
-        .highlight:hover{transform:translateY(-6px);border-color:#c5ddf8;box-shadow:0 14px 35px rgba(20,55,100,.08)}
-        .highlight:first-letter{transition:transform .3s ease}
-
-        .card{will-change:transform;transform-style:preserve-3d}
-        .card:hover{transform:translateY(-8px) rotateX(1deg) rotateY(-1deg);box-shadow:0 22px 45px rgba(20,55,100,.13);border-color:#c6ddf7}
-        .card .tag{transition:transform .25s ease,box-shadow .25s ease}
-        .card:hover .tag{transform:translateY(-2px);box-shadow:0 5px 15px rgba(8,125,240,.12)}
-
-        .pingo{position:relative;overflow:hidden}
-        .pingo::before{
-            content:"";position:absolute;width:500px;height:500px;border-radius:50%;
-            right:-170px;top:-210px;border:1px solid rgba(32,160,255,.13);
-            box-shadow:0 0 0 35px rgba(32,160,255,.025),0 0 0 75px rgba(32,160,255,.018);
-            animation:ringPulse 7s ease-in-out infinite;
-        }
-        .pingo > .container{position:relative;z-index:1}
-        .api-box{transition:transform .45s ease,box-shadow .45s ease}
-        .api-box:hover{transform:translateY(-7px) rotateX(2deg);box-shadow:0 22px 45px rgba(0,0,0,.25)}
-        .api-line{position:relative}
-        .api-line::after{
-            content:"";display:inline-block;width:7px;height:14px;margin-left:3px;
-            background:#20a0ff;vertical-align:-2px;animation:blink .9s steps(1) infinite;
-        }
-
-        .contact-info{position:relative;overflow:hidden}
-        .contact-info::before{
-            content:"";position:absolute;width:220px;height:220px;border-radius:50%;
-            right:-90px;bottom:-100px;background:rgba(32,160,255,.12);filter:blur(2px);
-            animation:orb 8s ease-in-out infinite;
-        }
-        .form{transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease}
-        .form:focus-within{transform:translateY(-4px);box-shadow:0 18px 45px rgba(20,55,100,.10);border-color:#c7ddf7}
-        .form input,.form textarea{transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
-        .form input:focus,.form textarea:focus{box-shadow:0 0 0 4px rgba(8,125,240,.08);transform:translateY(-1px)}
-
-        .toast{animation:toastIn .35s ease both}
-        .mobile-menu{transition:transform .25s ease}
-        .mobile-menu:hover{transform:scale(1.1)}
-
-        .back-top{
-            position:fixed;right:22px;bottom:22px;width:44px;height:44px;border:0;border-radius:50%;
-            background:#087df0;color:white;display:grid;place-items:center;cursor:pointer;
-            box-shadow:0 10px 25px rgba(8,125,240,.28);opacity:0;pointer-events:none;
-            transform:translateY(12px);transition:.3s;z-index:300;
-        }
-        .back-top.show{opacity:1;pointer-events:auto;transform:none}
-        .back-top:hover{transform:translateY(-3px) scale(1.05)}
-
-        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-        @keyframes statsIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-        @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-        @keyframes logoShine{0%,60%{transform:translateX(-55%) rotate(12deg)}85%,100%{transform:translateX(430%) rotate(12deg)}}
-        @keyframes orb{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(20px,18px,0) scale(1.08)}}
-        @keyframes ringPulse{0%,100%{transform:scale(.96);opacity:.65}50%{transform:scale(1.04);opacity:1}}
-        @keyframes blink{50%{opacity:0}}
-        @keyframes toastIn{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
-
-        @media(prefers-reduced-motion:reduce){
-            *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
-        }
-
-        /* ===== Trusted partners marquee ===== */
-        .trusted-marquee{
-            width:100%;
-            margin: -20px auto 38px;
-            overflow:hidden;
-            position:relative;
-            padding:10px 0;
-            -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-            mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-        }
-
-        .trusted-marquee-track{
-            width:max-content;
-            display:flex;
-            align-items:center;
-            gap:14px;
-            white-space:nowrap;
-            padding:5px 24px;
-            animation:trustedMarquee 8s ease-in-out infinite alternate;
-            will-change:transform;
-        }
-
-        .trusted-label{
-            font-size:11px;
-            font-weight:800;
-            letter-spacing:1.8px;
-            text-transform:uppercase;
-            color:#087df0;
-        }
-
-        .partner-name{
-            font-size:15px;
-            font-weight:750;
-            color:#14213d;
-            padding:8px 15px;
-            border:1px solid #dce8f5;
-            border-radius:999px;
-            background:rgba(255,255,255,.82);
-            box-shadow:0 5px 16px rgba(20,55,100,.06);
-            transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-        }
-
-        .partner-name:hover{
-            transform:translateY(-2px);
-            border-color:#b8d8f8;
-            box-shadow:0 9px 22px rgba(8,125,240,.12);
-        }
-
-        .partner-dot{
-            color:#20a0ff;
-            font-size:18px;
-            line-height:1;
-        }
-
-        @keyframes trustedMarquee{
-            0%{transform:translateX(18vw)}
-            100%{transform:translateX(calc(-1 * min(18vw, 180px)))}
-        }
-
-        @media(prefers-reduced-motion:reduce){
-            .trusted-marquee-track{animation:none}
-        }
-
-        @media(max-width:800px) {
-            nav {
-                display: none
-            }
-
-            .mobile-menu {
-                display: block;
-                border: 0;
-                background: none;
-                font-size: 25px
-            }
-
-            .logo {
-                width: 155px;
-                height: 56px;
-                flex-basis: 155px;
-            }
-
-            .logo-image {
-                width: 155px;
-                height: 56px;
-            }
-
-            .stats-grid,
-            .founders,
-            .cards,
-            .highlights,
-            .pingo-box,
-            .contact-grid {
-                grid-template-columns: 1fr
-            }
-
-            .stat {
-                border-right: 0;
-                border-bottom: 1px solid #edf1f7
-            }
-
-            .hero {
-                min-height: 560px
-            }
-
-            .hero-content {
-                padding: 70px 0
-            }
-
-            .person {
-                flex-direction: column
-            }
-
-            .section-head h2 {
-                font-size: 29px
-            }
-
-            .pingo-copy h3 {
-                font-size: 27px
-            }
-
-            .footer-inner {
-                flex-direction: column
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b33">
+  <title>Mavionix Technologies | Web, Mobile, Cloud & AI Solutions</title>
+  <meta name="description" content="Mavionix Technologies builds reliable web, mobile, cloud, API and AI solutions for businesses and startups in Bengaluru, India.">
+  <meta name="keywords" content="Mavionix Technologies, software development, web development, mobile app development, AI solutions, cloud, DevOps, Bengaluru">
+  <meta name="author" content="Mavionix Technologies">
+  <meta property="og:title" content="Mavionix Technologies | Build. Scale. Transform.">
+  <meta property="og:description" content="Web, mobile, cloud, API and AI solutions for modern businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mavionixtech.vercel.app/">
+  <link rel="icon" href="mavionix-logo.png">
+
+  <style>
+    :root{
+      --blue:#087df0;
+      --cyan:#20a0ff;
+      --navy:#071b33;
+      --navy-2:#0b3154;
+      --ink:#14213d;
+      --muted:#68778e;
+      --bg:#f6f9fd;
+      --line:#e1eaf4;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(20,55,100,.10);
+      --radius:20px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden
+    }
+    body.menu-open{overflow:hidden}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(1160px,92%);margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(255,255,255,.94);backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(225,234,244,.85);
+      transition:.3s
+    }
+    header.scrolled{box-shadow:0 10px 35px rgba(7,38,73,.10)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;width:180px;height:62px;flex:0 0 180px}
+    .logo-image{display:block;width:180px;height:62px;object-fit:contain;object-position:left center}
+    nav{display:flex;align-items:center;gap:28px}
+    nav a{font-size:14px;font-weight:700;color:#35425a;transition:.2s}
+    nav a:hover{color:var(--blue)}
+    .nav-cta{
+      padding:10px 16px;border-radius:10px;background:var(--blue)!important;
+      color:#fff!important;box-shadow:0 8px 22px rgba(8,125,240,.20)
+    }
+    .mobile-menu{display:none;border:0;background:none;font-size:27px;color:var(--ink)}
+
+    .hero{
+      position:relative;overflow:hidden;color:#fff;
+      min-height:650px;display:flex;align-items:center;
+      background:
+        radial-gradient(circle at 82% 18%,rgba(32,160,255,.25),transparent 28%),
+        radial-gradient(circle at 10% 90%,rgba(8,125,240,.18),transparent 25%),
+        linear-gradient(120deg,#06172b,#0a2d4f 55%,#08213c)
+    }
+    .hero:before{
+      content:"";position:absolute;width:520px;height:520px;right:-220px;top:-230px;
+      border:1px solid rgba(112,208,255,.18);border-radius:50%;
+      box-shadow:0 0 0 50px rgba(32,160,255,.025),0 0 0 110px rgba(32,160,255,.018);
+      animation:float 9s ease-in-out infinite
+    }
+    .hero-content{position:relative;z-index:2;padding:92px 0 105px;max-width:860px}
+    .badge{
+      display:inline-flex;padding:8px 14px;border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;background:rgba(255,255,255,.07);font-size:12px;
+      font-weight:800;letter-spacing:1px;margin-bottom:22px
+    }
+    .hero h1{font-size:clamp(42px,6.2vw,72px);line-height:1.02;letter-spacing:-2.8px;max-width:850px}
+    .hero h1 span{color:#35b0ff}
+    .hero p{max-width:700px;color:#c9d8e8;margin:24px 0 31px;font-size:18px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 20px;border-radius:11px;background:var(--blue);color:#fff;
+      border:1px solid transparent;font-weight:800;transition:.25s;
+      box-shadow:0 10px 25px rgba(17,140,242,.20)
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(17,140,242,.28)}
+    .btn.secondary{background:#fff;color:#1262c7;border-color:#cfe0f5;box-shadow:none}
+    .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25);box-shadow:none}
+    .trust-line{margin-top:28px;color:#9fb5ca;font-size:12px;letter-spacing:.5px}
+
+    .stats{margin-top:-48px;position:relative;z-index:5}
+    .stats-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:18px;
+      box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden
+    }
+    .stat{padding:25px 22px;border-right:1px solid #edf1f7}
+    .stat:last-child{border:0}
+    .icon{font-size:24px;color:var(--blue);margin-bottom:8px}
+    .stat h3{font-size:15px}.stat p{font-size:12px;color:#71809b;margin-top:3px}
+
+    section{padding:92px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 48px}
+    .kicker{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
+    .section-head h2{font-size:clamp(29px,4vw,40px);line-height:1.12;margin:9px 0 13px;letter-spacing:-1.2px}
+    .section-head p{color:var(--muted)}
+
+    .about{background:#fff}
+    .about-story{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:stretch;margin-bottom:30px
+    }
+    .story-card,.why-card{
+      border:1px solid var(--line);border-radius:var(--radius);background:#f9fbff;padding:32px
+    }
+    .story-card h3,.why-card h3{font-size:24px;margin-bottom:12px}
+    .story-card p,.why-card p{color:var(--muted);font-size:15px}
+    .numbers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+    .number-box{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+    .number-box strong{display:block;font-size:25px;color:var(--blue)}
+    .number-box span{font-size:12px;color:var(--muted)}
+    .why-list{display:grid;gap:13px;margin-top:18px}
+    .why-item{display:flex;gap:11px;font-size:14px;color:#51627a}
+    .why-item b{color:var(--ink)}
+
+    .founders{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .person{
+      background:#f9fbff;border:1px solid var(--line);border-radius:20px;padding:28px;
+      display:flex;gap:20px;align-items:flex-start;transition:.3s
+    }
+    .person:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .avatar{
+      width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,#d9ecff,#eef5ff);
+      display:grid;place-items:center;font-size:25px;font-weight:900;color:var(--blue);flex:none
+    }
+    .person h3{font-size:20px}.role{color:var(--blue);font-weight:800;font-size:13px;margin:3px 0 9px}
+    .person p{font-size:13px;color:#66758d}
+
+    .services{background:#f6f9fd}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{
+      background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;transition:.3s
+    }
+    .service:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#c5ddf8}
+    .service-icon{font-size:28px;margin-bottom:14px}
+    .service h3{font-size:18px;margin-bottom:8px}.service p{font-size:13px;color:var(--muted)}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .tech-tag{font-size:11px;font-weight:800;padding:6px 9px;border-radius:999px;background:#edf6ff;color:#1262c7}
+
+    .products{background:#fff}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{
+      background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;transition:.3s;
+      box-shadow:0 4px 16px rgba(20,55,100,.03)
+    }
+    .card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#c6ddf7}
+    .card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+    .card h3{font-size:18px}.tag{font-size:10px;font-weight:900;padding:5px 8px;border-radius:20px;background:#e8f5ff;color:var(--blue);white-space:nowrap}
+    .card p{font-size:13px;color:#68778e;margin-bottom:15px}
+    .card ul{list-style:none;margin-bottom:19px}.card li{font-size:12px;color:#4f6078;margin:7px 0}
+    .card li:before{content:"✓";color:var(--blue);font-weight:900;margin-right:7px}
+    .card .btn{font-size:12px;padding:9px 13px}
+
+    .pingo{position:relative;overflow:hidden;background:var(--navy);color:#fff}
+    .pingo .section-head p{color:#b9c9db}
+    .pingo-box{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .pingo-copy h3{font-size:34px;margin:8px 0 14px;line-height:1.15}
+    .pingo-copy p{color:#c4d3e3;max-width:620px}
+    .pingo-points{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+    .pingo-point{padding:13px;border:1px solid #1d4569;background:#0b2948;border-radius:12px;font-size:12px;color:#c9d8e8}
+    .api-box{background:#0b2948;border:1px solid #1d4569;border-radius:18px;padding:25px}
+    .api-title{font-size:12px;font-weight:900;color:#9ed8ff;margin-bottom:12px}
+    .api-line{background:#061a31;border-radius:10px;padding:16px;color:#9ed8ff;font-family:Consolas,monospace;font-size:12px;overflow:auto}
+
+    .tech-section{background:#f6f9fd}
+    .tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .tech-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:21px}
+    .tech-box h3{font-size:15px;margin-bottom:12px}.tech-box p{font-size:12px;color:var(--muted);line-height:2}
+
+    .process{background:#fff}
+    .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .step{position:relative;padding:23px 18px;border:1px solid var(--line);border-radius:17px;background:#fbfdff}
+    .step-num{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:1px}
+    .step h3{font-size:16px;margin:7px 0 5px}.step p{font-size:12px;color:var(--muted)}
+    .step:not(:last-child):after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:#8ebbe8;font-size:20px;z-index:2}
+
+    .contact{background:#f6f9fd}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}
+    .contact-info{
+      position:relative;overflow:hidden;background:linear-gradient(135deg,#071c34,#0a3154);
+      color:#fff;border-radius:22px;padding:36px
+    }
+    .contact-info h2{font-size:36px;line-height:1.12;margin:10px 0 15px}
+    .contact-info p{color:#c7d6e5}
+    .info{margin-top:25px;display:grid;gap:12px}
+    .info a,.info div{padding:13px 14px;background:rgba(255,255,255,.06);border-radius:10px;color:#eef7ff}
+    .socials{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .social{padding:8px 12px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:12px}
+    .form{padding:30px;border:1px solid var(--line);border-radius:22px;background:#fff}
+    .form h3{margin-bottom:18px;font-size:22px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form input,.form textarea,.form select{
+      width:100%;padding:13px 14px;margin-bottom:12px;border:1px solid #dbe5f0;
+      border-radius:9px;outline:none;font:inherit;background:#fff
+    }
+    .form textarea{height:130px;resize:vertical}
+    .form input:focus,.form textarea:focus,.form select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(8,125,240,.08)}
+    .form-note{font-size:11px;color:#7a889b;margin-top:10px}
+
+    footer{background:#041326;color:#aebed0;padding:30px 0;font-size:12px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+    .footer-brand strong{font-size:17px;color:#fff;display:block;margin-bottom:7px}
+    .footer-brand p{max-width:330px}
+    .footer-col h4{color:#fff;margin-bottom:10px}.footer-col a{display:block;margin:6px 0}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.09);margin-top:25px;padding-top:18px;display:flex;justify-content:space-between;gap:15px}
+
+    .whatsapp{
+      position:fixed;right:22px;bottom:76px;width:50px;height:50px;border-radius:50%;
+      background:#25d366;color:#fff;display:grid;place-items:center;font-size:25px;
+      box-shadow:0 10px 28px rgba(0,0,0,.20);z-index:500
+    }
+    .back-top{
+      position:fixed;right:22px;bottom:18px;width:44px;height:44px;border:0;border-radius:50%;
+      background:var(--blue);color:#fff;display:grid;place-items:center;
+      box-shadow:0 10px 25px rgba(8,125,240,.28);opacity:0;pointer-events:none;
+      transform:translateY(12px);transition:.3s;z-index:500
+    }
+    .back-top.show{opacity:1;pointer-events:auto;transform:none}
+    .toast{
+      position:fixed;right:20px;bottom:20px;background:#0b2440;color:#fff;padding:13px 18px;
+      border-radius:10px;display:none;z-index:2000;box-shadow:0 10px 30px #0003
+    }
+
+    .reveal{opacity:0;transform:translateY(22px);transition:.7s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,18px)}}
+
+    @media(max-width:900px){
+      nav{display:none}
+      nav.open{
+        display:flex;position:absolute;left:4%;right:4%;top:70px;background:#fff;
+        padding:18px;flex-direction:column;align-items:stretch;border-radius:14px;
+        box-shadow:0 18px 40px rgba(20,55,100,.15);border:1px solid var(--line)
+      }
+      nav.open a{padding:10px}
+      .mobile-menu{display:block}
+      .stats-grid,.service-grid,.cards{grid-template-columns:1fr 1fr}
+      .about-story,.contact-grid,.pingo-box{grid-template-columns:1fr}
+      .tech-grid{grid-template-columns:1fr 1fr}
+      .process-grid{grid-template-columns:1fr 1fr}
+      .step:not(:last-child):after{display:none}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:620px){
+      .container{width:min(94%,1160px)}
+      .logo,.logo-image{width:155px;height:56px}
+      .hero{min-height:600px}.hero-content{padding:70px 0 90px}
+      .hero h1{letter-spacing:-1.8px}.hero p{font-size:16px}
+      .stats-grid,.service-grid,.cards,.founders,.highlights,.tech-grid,.process-grid{grid-template-columns:1fr}
+      .stat{border-right:0;border-bottom:1px solid #edf1f7}
+      .person{flex-direction:column}.pingo-points,.form-grid{grid-template-columns:1fr}
+      .section-head{margin-bottom:35px}
+      section{padding:72px 0}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column}
+      .whatsapp{right:16px;bottom:72px}
+      .back-top{right:16px;bottom:16px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+  </style>
 </head>
 
 <body>
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="logo" aria-label="Mavionix Technologies Home">
+      <img class="logo-image" src="mavionix-logo.png" alt="Mavionix Technologies">
+    </a>
 
-    <header>
-        <div class="container nav">
-       <a href="#home" class="logo" aria-label="Mavionix Technologies Home">
-    <img class="logo-image" src="mavionix-logo.png" alt="Mavionix Technologies">
-</a>
-            <nav>
-                <a href="#home">Home</a><a href="#about">About Us</a><a href="#products">Products & Clients</a><a
-                    href="#contact">Contact Us</a>
-            </nav>
-            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+    <nav id="mainNav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#technologies">Technologies</a>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </nav>
+
+    <button class="mobile-menu" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <span class="badge">WEB • MOBILE • CLOUD • AI • API</span>
+      <h1>Build. <span>Scale. Transform.</span></h1>
+      <p>
+        Mavionix Technologies builds reliable web, mobile, cloud, API and AI solutions
+        that help businesses launch faster, operate smarter and grow with confidence.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">Start a Project →</a>
+        <a class="btn ghost" href="#work">View Our Work</a>
+      </div>
+      <div class="trust-line">Bengaluru, India &nbsp;•&nbsp; Product Engineering &nbsp;•&nbsp; Long-Term Technology Partner</div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="container stats-grid">
+      <div class="stat"><div class="icon">⌘</div><h3>Web Development</h3><p>Modern, responsive business applications</p></div>
+      <div class="stat"><div class="icon">▣</div><h3>Mobile Development</h3><p>Android and cross-platform applications</p></div>
+      <div class="stat"><div class="icon">☁</div><h3>Cloud & DevOps</h3><p>AWS, Linux, deployment and production support</p></div>
+      <div class="stat"><div class="icon">✦</div><h3>AI & Automation</h3><p>AI integrations and intelligent workflows</p></div>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">About Mavionix</div>
+        <h2>Engineering software with a business-first mindset.</h2>
+        <p>We combine practical engineering, modern technology and long-term support to turn ideas and business requirements into dependable digital products.</p>
+      </div>
+
+      <div class="about-story">
+        <div class="story-card reveal">
+          <h3>Who We Are</h3>
+          <p>
+            Mavionix Technologies is a software engineering company based in Bengaluru, India.
+            We work across web, mobile, cloud, APIs, AI and healthcare software, helping businesses
+            build new products and improve existing applications.
+          </p>
+          <div class="numbers">
+            <div class="number-box"><strong>2+</strong><span>Years professional engineering experience</span></div>
+            <div class="number-box"><strong>Web + Mobile</strong><span>End-to-end application development</span></div>
+            <div class="number-box"><strong>Cloud + API</strong><span>Production deployment and integrations</span></div>
+            <div class="number-box"><strong>AI</strong><span>Modern intelligent application workflows</span></div>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="container hero-content">
-                <span class="badge">SOFTWARE • CLOUD • MOBILE • AI</span>
-                <h1>Building Scalable Software Solutions for a <span>Smarter Tomorrow.</span></h1>
-                <p>Mavionix Technologies is a service-based software company focused on building, developing and
-                    maintaining reliable web, mobile, API, cloud and AI solutions for businesses.</p>
-                <a class="btn" href="#contact">Let's Work Together →</a>
-            </div>
-        </section>
+        <div class="why-card reveal">
+          <h3>Why Mavionix?</h3>
+          <p>We focus on practical outcomes instead of technology for technology's sake.</p>
+          <div class="why-list">
+            <div class="why-item">✓ <span><b>End-to-End Development</b> — architecture through deployment and maintenance.</span></div>
+            <div class="why-item">✓ <span><b>Production Experience</b> — real-world web, mobile, healthcare and AI workflows.</span></div>
+            <div class="why-item">✓ <span><b>Cloud & DevOps</b> — reliable infrastructure, deployments and support.</span></div>
+            <div class="why-item">✓ <span><b>Long-Term Partnership</b> — continuous development after launch.</span></div>
+          </div>
+        </div>
+      </div>
 
-        <div class="stats">
-            <div class="container stats-grid">
-                <div class="stat">
-                    <div class="icon">⌘</div>
-                    <h3>Web Development</h3>
-                    <p>Modern, responsive business applications</p>
-                </div>
-                <div class="stat">
-                    <div class="icon">▣</div>
-                    <h3>Mobile Development</h3>
-                    <p>Android and cross-platform applications</p>
-                </div>
-                <div class="stat">
-                    <div class="icon">☁</div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>AWS, Linux, deployment and production support</p>
-                </div>
-                <div class="stat">
-                    <div class="icon">⚙</div>
-                    <h3>API & Integrations</h3>
-                    <p>Scalable APIs and third-party integrations</p>
-                </div>
-            </div>
+      <div class="founders">
+        <div class="person reveal">
+          <div class="avatar">MA</div>
+          <div>
+            <h3>Madhukumar A P</h3>
+            <div class="role">Co-Founder & Software Engineer</div>
+            <p>Full Stack Developer with professional experience across backend, web, mobile, healthcare workflows, APIs, AI integrations, databases, AWS and production support.</p>
+          </div>
+        </div>
+        <div class="person reveal">
+          <div class="avatar">MB</div>
+          <div>
+            <h3>Mallikarjun B Y</h3>
+            <div class="role">Co-Founder & Full Stack Engineer</div>
+            <p>Full Stack Engineer experienced in production web applications, REST APIs, authentication systems, databases, AWS deployments, testing and CI/CD.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">What We Do</div>
+        <h2>Technology services built around your business.</h2>
+        <p>From a new product to an existing system that needs modernization, we can support the complete engineering lifecycle.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service reveal">
+          <div class="service-icon">🌐</div><h3>Web Development</h3>
+          <p>Responsive websites, SaaS platforms, dashboards and business applications designed for performance and maintainability.</p>
+          <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">REST APIs</span></div>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">📱</div><h3>Mobile Development</h3>
+          <p>Modern mobile applications for Android and cross-platform environments with reliable backend integration.</p>
+          <div class="tech-tags"><span class="tech-tag">Flutter</span><span class="tech-tag">React Native</span><span class="tech-tag">Android</span></div>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">☁️</div><h3>Cloud & DevOps</h3>
+          <p>Production-ready infrastructure, deployment, monitoring and operational support for growing applications.</p>
+          <div class="tech-tags"><span class="tech-tag">AWS</span><span class="tech-tag">Linux</span><span class="tech-tag">Nginx</span></div>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">🤖</div><h3>AI Solutions</h3>
+          <p>AI-powered assistants, automation, intelligent workflows and integrations that make applications smarter.</p>
+          <div class="tech-tags"><span class="tech-tag">OpenAI</span><span class="tech-tag">Python</span><span class="tech-tag">LangChain</span></div>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">🔌</div><h3>API & Integrations</h3>
+          <p>Secure REST APIs and third-party integrations connecting applications, services, data and business workflows.</p>
+          <div class="tech-tags"><span class="tech-tag">Node.js</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Webhooks</span></div>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">🏥</div><h3>Healthcare Software</h3>
+          <p>Experience across clinical applications, ECG workflows, patient systems and healthcare integrations.</p>
+          <div class="tech-tags"><span class="tech-tag">Healthcare</span><span class="tech-tag">ECG</span><span class="tech-tag">DICOM</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Featured Work</div>
+        <h2>Products, platforms and client solutions.</h2>
+        <p>Selected experience across SaaS, mobile, healthcare, AI and business applications.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-top"><h3>Pingo — SMS API</h3><span class="tag">OUR PRODUCT</span></div>
+          <p>A SaaS SMS platform designed to let businesses connect their applications to messaging through a simple API.</p>
+          <ul><li>API-based SMS delivery</li><li>Recipient and message handling</li><li>Sender ID support where available</li><li>Scalable service architecture</li></ul>
+          <a href="#pingo" class="btn secondary">Explore Pingo →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top"><h3>Astro Pandit</h3><span class="tag">CLIENT PROJECT</span></div>
+          <p>Development and maintenance engagement covering an Android application and web applications.</p>
+          <ul><li>Android application</li><li>Web applications</li><li>Feature development</li><li>Maintenance and production support</li></ul>
+          <a href="#contact" class="btn secondary">Discuss a Similar Project →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top"><h3>Astro User</h3><span class="tag">CLIENT PROJECT</span></div>
+          <p>Application ecosystem development across Android and web with ongoing feature delivery and support.</p>
+          <ul><li>Android application</li><li>Web application</li><li>Feature development</li><li>Maintenance and support</li></ul>
+          <a href="#contact" class="btn secondary">Discuss a Similar Project →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top"><h3>Cardless ATM</h3><span class="tag">PROJECT</span></div>
+          <p>Biometric authentication concept using machine learning and facial recognition for secure cardless transactions.</p>
+          <ul><li>Biometric authentication</li><li>Facial recognition</li><li>AI/ML workflow</li><li>Secure transaction concept</li></ul>
+          <a href="#contact" class="btn secondary">Discuss the Project →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top"><h3>Healthcare Platforms</h3><span class="tag">EXPERIENCE</span></div>
+          <p>Healthcare and clinical software experience including ECG, patient workflows, integrations and production systems.</p>
+          <ul><li>Web and mobile applications</li><li>REST APIs and integrations</li><li>Database systems</li><li>Production deployment</li></ul>
+          <a href="#contact" class="btn secondary">Discuss Your Idea →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top"><h3>AI & E-Learning</h3><span class="tag">PROJECT</span></div>
+          <p>Accessible e-learning and medical assistance platform with interactive modules, sign-language integration and appointment workflows.</p>
+          <ul><li>Interactive learning modules</li><li>Sign-language integration</li><li>Appointment scheduling</li><li>Responsive web experience</li></ul>
+          <a href="#contact" class="btn secondary">Discuss the Project →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pingo" id="pingo">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Featured Product</div>
+        <h2>Pingo — Simple SMS API for Businesses</h2>
+        <p>Connect your application to Pingo and let your system send customer messages through an easy API.</p>
+      </div>
+
+      <div class="pingo-box">
+        <div class="pingo-copy reveal">
+          <h3>One API call. One message. Delivered.</h3>
+          <p>A business sends the recipient number and message body to the Pingo API. Pingo handles SMS delivery, with sender ID support where supported by the messaging provider and applicable regulations.</p>
+          <div class="pingo-points">
+            <div class="pingo-point">✓ Developer-friendly API</div>
+            <div class="pingo-point">✓ Business messaging workflow</div>
+            <div class="pingo-point">✓ Scalable architecture</div>
+            <div class="pingo-point">✓ Integration-ready</div>
+          </div>
         </div>
 
-        <section class="about" id="about">
-            <div class="container">
-                <div class="section-head">
-                    <div class="kicker">About Us</div>
-                    <h2>Two Engineers. One Technology Vision.</h2>
-                    <p>Mavionix Technologies is being built by software engineers focused on practical, maintainable and
-                        business-oriented solutions.</p>
-                </div>
-                <div class="founders">
-                    <div class="person">
-                        <div class="avatar">MA</div>
-                        <div>
-                            <h3>Madhukumar A P</h3>
-                            <div class="role">Co-Founder & Software Engineer</div>
-                            <p>Full Stack Developer with 2+ years of professional experience across backend, web,
-                                mobile, healthcare workflows, APIs, AI integrations, databases, AWS and production
-                                support.</p>
-                        </div>
-                    </div>
-                    <div class="person">
-                        <div class="avatar">MB</div>
-                        <div>
-                            <h3>Mallikarjun B Y</h3>
-                            <div class="role">Co-Founder & Full Stack Engineer</div>
-                            <p>Full Stack Engineer with 2+ years of experience building production web applications,
-                                REST APIs, authentication systems, databases, AWS deployments, testing and CI/CD.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="highlights">
-                    <div class="highlight">👥<b>Client Focused</b><span>Understand business needs and deliver practical
-                            solutions.</span></div>
-                    <div class="highlight">⚡<b>Quality & Reliability</b><span>Clean, maintainable and scalable
-                            engineering.</span></div>
-                    <div class="highlight">📈<b>Modern Technology</b><span>Web, mobile, cloud, AI and API-first
-                            development.</span></div>
-                    <div class="highlight">🤝<b>Long-Term Partnership</b><span>Development, maintenance and continuous
-                            improvements.</span></div>
-                </div>
-            </div>
-        </section>
+        <div class="api-box reveal">
+          <div class="api-title">EXAMPLE REQUEST</div>
+          <div class="api-line">POST /api/v1/sms/send<br><br>{<br>&nbsp;&nbsp;"to": "+91XXXXXXXXXX",<br>&nbsp;&nbsp;"message": "Your message here",<br>&nbsp;&nbsp;"sender": "YOURNAME"<br>}</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section class="products" id="products">
-            <div class="container">
-                <div class="section-head">
-                    <div class="kicker">Products & Clients</div>
-                    <h2>What We Build & Maintain</h2>
-                    <p>Our experience spans software products and client applications across mobile, web, healthcare, AI
-                        and APIs.</p>
+  <section class="tech-section" id="technologies">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Technology</div>
+        <h2>A modern stack for production software.</h2>
+        <p>We choose technologies based on the product requirements, scalability, maintainability and deployment environment.</p>
+      </div>
 
-                    <div class="trusted-marquee" aria-label="Trusted partners">
-                        <div class="trusted-marquee-track">
-                            <span class="trusted-label">Our Trusted Partners</span>
-                            <span class="partner-dot">•</span>
-                            <span class="partner-name">Astro Pandit</span>
-                            <span class="partner-dot">•</span>
-                            <span class="partner-name">Spark Technologies</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cards">
-                    <div class="card">
-                        <div class="card-top">
-                            <h3>Pingo — SMS API</h3><span class="tag">OUR PRODUCT</span>
-                        </div>
-                        <p>A SaaS SMS platform where businesses can integrate a simple API and send messages to their
-                            customers.</p>
-                        <ul>
-                            <li>API-based SMS delivery</li>
-                            <li>To-address + message body</li>
-                            <li>Custom sender ID / SMS name support</li>
-                            <li>Scalable service architecture</li>
-                        </ul><a href="#contact" class="btn secondary">Discuss Pingo →</a>
-                    </div>
+      <div class="tech-grid">
+        <div class="tech-box reveal"><h3>Frontend</h3><p>React<br>Vite<br>HTML / CSS / JavaScript<br>Responsive UI</p></div>
+        <div class="tech-box reveal"><h3>Backend</h3><p>Node.js<br>Express<br>Python / FastAPI<br>REST APIs</p></div>
+        <div class="tech-box reveal"><h3>Database</h3><p>MySQL<br>PostgreSQL<br>MongoDB<br>Data integrations</p></div>
+        <div class="tech-box reveal"><h3>Cloud & DevOps</h3><p>AWS<br>Linux<br>Nginx<br>PM2 / CI/CD</p></div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="card">
-                        <div class="card-top">
-                            <h3>Astro Pandit</h3><span class="tag">CLIENT PROJECT</span>
-                        </div>
-                        <p>Development and maintenance engagement covering an Android application and two web
-                            applications.</p>
-                        <ul>
-                            <li>Android application</li>
-                            <li>Two web applications</li>
-                            <li>Ongoing development</li>
-                            <li>Maintenance & production support</li>
-                        </ul><a href="#contact" class="btn secondary">Learn More →</a>
-                    </div>
+  <section class="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">How We Work</div>
+        <h2>From idea to production.</h2>
+        <p>A clear engineering process keeps projects predictable, transparent and focused on business outcomes.</p>
+      </div>
 
-                    <div class="card">
-                        <div class="card-top">
-                            <h3>Astro User</h3><span class="tag">CLIENT PROJECT</span>
-                        </div>
-                        <p>Development and maintenance work for a client application ecosystem across Android and web.
-                        </p>
-                        <ul>
-                            <li>Android application</li>
-                            <li>Web application</li>
-                            <li>Feature development</li>
-                            <li>Maintenance & support</li>
-                        </ul><a href="#contact" class="btn secondary">Learn More →</a>
-                    </div>
+      <div class="process-grid">
+        <div class="step reveal"><div class="step-num">01</div><h3>Discover</h3><p>Understand the business, users and requirements.</p></div>
+        <div class="step reveal"><div class="step-num">02</div><h3>Design</h3><p>Define architecture, UX and technical approach.</p></div>
+        <div class="step reveal"><div class="step-num">03</div><h3>Develop</h3><p>Build, integrate and test the product.</p></div>
+        <div class="step reveal"><div class="step-num">04</div><h3>Deploy</h3><p>Launch on reliable production infrastructure.</p></div>
+        <div class="step reveal"><div class="step-num">05</div><h3>Support</h3><p>Maintain, monitor and continuously improve.</p></div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="card">
-                        <div class="card-top">
-                            <h3>Cardless ATM</h3><span class="tag">PRODUCT / PROJECT</span>
-                        </div>
-                        <p>Biometric authentication concept using machine learning and facial recognition for secure
-                            cardless transactions.</p>
-                        <ul>
-                            <li>Biometric authentication</li>
-                            <li>Facial recognition</li>
-                            <li>AI/ML workflow</li>
-                            <li>Secure transaction concept</li>
-                        </ul><a href="#contact" class="btn secondary">Discuss Project →</a>
-                    </div>
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="kicker">Start a Project</div>
+          <h2>Let's build something valuable together.</h2>
+          <p>Tell us what you're building, what needs improvement or what you want to automate. We'll discuss the right technical approach for your business.</p>
 
-                    <div class="card">
-                        <div class="card-top">
-                            <h3>Healthcare Platforms</h3><span class="tag">EXPERIENCE</span>
-                        </div>
-                        <p>Experience developing and maintaining healthcare and clinical software, including ECG and
-                            patient workflows.</p>
-                        <ul>
-                            <li>Web & mobile applications</li>
-                            <li>REST APIs & integrations</li>
-                            <li>Database systems</li>
-                            <li>Production deployment</li>
-                        </ul><a href="#contact" class="btn secondary">Discuss Your Idea →</a>
-                    </div>
+          <div class="info">
+            <a href="mailto:infomavionix@gmail.com">✉️ infomavionix@gmail.com</a>
+            <a href="tel:+918152974486">📞 +91 8152974486</a>
+            <div>📍 Bengaluru, Karnataka, India</div>
+          </div>
 
-                    <div class="card">
-                        <div class="card-top">
-                            <h3>AI & E-Learning</h3><span class="tag">PROJECT</span>
-                        </div>
-                        <p>Accessible e-learning and medical assistance platform with sign-language integration and
-                            appointment workflows.</p>
-                        <ul>
-                            <li>Interactive learning modules</li>
-                            <li>Sign-language integration</li>
-                            <li>Appointment scheduling</li>
-                            <li>Responsive web experience</li>
-                        </ul><a href="#contact" class="btn secondary">Discuss Project →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <div class="socials">
+            <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="social" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            <a class="social" href="https://wa.me/918152974486?text=Hi%20Mavionix%2C%20I%27m%20interested%20in%20discussing%20a%20software%20project." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
 
-        <section class="pingo">
-            <div class="container">
-                <div class="section-head">
-                    <div class="kicker">Featured SaaS</div>
-                    <h2>Pingo — Simple SMS API for Businesses</h2>
-                    <p>Connect your application to Pingo and let your system send customer messages through an easy API.
-                    </p>
-                </div>
-                <div class="pingo-box">
-                    <div class="pingo-copy">
-                        <h3>One API call. One message. Delivered.</h3>
-                        <p>A business sends the recipient number and message body to the Pingo API. Pingo handles the
-                            SMS delivery. The platform can also support a customized sender ID / SMS name where
-                            supported by the messaging provider and regulations.</p>
-                    </div>
-                    <div class="api-box">
-                        <div class="api-line">POST /api/v1/sms/send<br><br>{<br>&nbsp;&nbsp;"to":
-                            "+91XXXXXXXXXX",<br>&nbsp;&nbsp;"message": "Your message here",<br>&nbsp;&nbsp;"sender":
-                            "YOURNAME"<br>}</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <form class="form reveal" id="contactForm">
+          <h3>Tell us about your project</h3>
+          <div class="form-grid">
+            <input required name="name" placeholder="Your Name" autocomplete="name">
+            <input required type="email" name="email" placeholder="Business Email" autocomplete="email">
+          </div>
+          <div class="form-grid">
+            <input name="company" placeholder="Company">
+            <select name="service">
+              <option value="">What do you need?</option>
+              <option>Web Development</option>
+              <option>Mobile Development</option>
+              <option>Cloud & DevOps</option>
+              <option>AI Solutions</option>
+              <option>API & Integrations</option>
+              <option>Healthcare Software</option>
+              <option>Maintenance / Modernization</option>
+            </select>
+          </div>
+          <textarea required name="message" placeholder="Tell us about your project, timeline and requirements..."></textarea>
+          <button class="btn" type="submit">Send Enquiry →</button>
+          <div class="form-note">We respect your information. Connect the form to your CRM/backend before going live.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
 
-        <section class="contact" id="contact">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="kicker">Contact Us</div>
-                        <h2>Let's Build Something Great Together.</h2>
-                        <p>Have a software idea, an existing application that needs maintenance, or a business process
-                            that needs automation? Talk to us.</p>
-                        <div class="info">
-                            <div>✉️ infomavionix@gmail.com</div>
-                            <div>📞 +91 8152974486</div>
-                            <div>📍 Bengaluru, Karnataka, India</div>
-                        </div>
-                    </div>
-                    <form class="form" onsubmit="sendMessage(event)">
-                        <h3>Send us a Message</h3><input required placeholder="Your Name"><input required type="email"
-                            placeholder="Your Email"><textarea required
-                            placeholder="Tell us about your project..."></textarea><button class="btn"
-                            type="submit">Send Message →</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <strong>Mavionix Technologies</strong>
+        <p>Web, mobile, cloud, API and AI engineering for modern businesses.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About</a><a href="#services">Services</a><a href="#work">Our Work</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:infomavionix@gmail.com">Email us</a>
+        <a href="https://wa.me/918152974486" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#contact">Start a Project</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Mavionix Technologies. All rights reserved.</span>
+      <span>Building Innovative Solutions for a Better Tomorrow.</span>
+    </div>
+  </div>
+</footer>
 
-    <footer>
-        <div class="container footer-inner"><span>© <span id="year"></span> Mavionix Technologies. All rights
-                reserved.</span><span>Building Innovative Solutions for a Better Tomorrow.</span></div>
-    </footer>
-    <div class="toast" id="toast">Thank you! We'll get back to you soon.</div>
+<a class="whatsapp" href="https://wa.me/918152974486?text=Hi%20Mavionix%2C%20I%27m%20interested%20in%20discussing%20a%20software%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">◔</a>
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast">Thank you! We'll get back to you soon.</div>
 
-    <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+  const header = document.getElementById("header");
+  const nav = document.getElementById("mainNav");
+  const menuButton = document.getElementById("menuButton");
+  const backTop = document.getElementById("backTop");
+  const toast = document.getElementById("toast");
 
-        function toggleMenu() {
-            const n = document.querySelector("nav");
-            n.style.display = n.style.display === "flex" ? "none" : "flex";
-            n.style.position = "absolute";
-            n.style.right = "4%";
-            n.style.top = "72px";
-            n.style.background = "#fff";
-            n.style.padding = "18px";
-            n.style.borderRadius = "12px";
-            n.style.flexDirection = "column";
-            n.style.boxShadow = "0 10px 30px #0002";
-        }
+  menuButton.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("menu-open", open);
+  });
 
-        function sendMessage(e) {
-            e.preventDefault();
-            document.getElementById("toast").style.display = "block";
-            e.target.reset();
-            setTimeout(() => document.getElementById("toast").style.display = "none", 3000);
-        }
+  document.querySelectorAll("#mainNav a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
+    });
+  });
 
-        // Reveal sections/cards smoothly as they enter the viewport.
-        const revealItems = document.querySelectorAll(
-            ".section-head, .person, .highlight, .card"
-        );
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-        revealItems.forEach(el => revealObserver.observe(el));
+  function updateScrollUI() {
+    header.classList.toggle("scrolled", window.scrollY > 10);
+    backTop.classList.toggle("show", window.scrollY > 550);
+  }
+  window.addEventListener("scroll", updateScrollUI, { passive:true });
+  updateScrollUI();
 
-        // Header shadow + reading progress + back-to-top button.
-        const header = document.querySelector("header");
-        const progress = document.createElement("div");
-        progress.className = "page-progress";
-        document.body.prepend(progress);
+  backTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
 
-        const backTop = document.getElementById("backTop");
-        function updateScrollUI() {
-            const scrollTop = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            progress.style.width = (maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0) + "%";
-            header.classList.toggle("scrolled", scrollTop > 10);
-            backTop.classList.toggle("show", scrollTop > 550);
-        }
-        window.addEventListener("scroll", updateScrollUI, { passive: true });
-        updateScrollUI();
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.10, rootMargin:"0px 0px -35px 0px"});
 
-        backTop.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-        // Subtle cursor light on desktop.
-        if (window.matchMedia("(pointer:fine)").matches) {
-            document.body.classList.add("cursor-glow");
-            window.addEventListener("pointermove", e => {
-                document.documentElement.style.setProperty("--mx-x", e.clientX + "px");
-                document.documentElement.style.setProperty("--mx-y", e.clientY + "px");
-            }, { passive: true });
-        }
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
 
-        // Gentle 3D tilt on product cards.
-        document.querySelectorAll(".card").forEach(card => {
-            card.addEventListener("pointermove", e => {
-                if (window.matchMedia("(pointer:fine)").matches) {
-                    const r = card.getBoundingClientRect();
-                    const x = (e.clientX - r.left) / r.width - .5;
-                    const y = (e.clientY - r.top) / r.height - .5;
-                    card.style.transform =
-                        `translateY(-8px) perspective(800px) rotateX(${(-y * 3).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg)`;
-                }
-            });
-            card.addEventListener("pointerleave", () => {
-                card.style.transform = "";
-            });
-        });
+    // Replace this demo handler with your CRM/backend endpoint before production.
+    const data = Object.fromEntries(new FormData(this).entries());
+    console.log("Contact enquiry:", data);
 
-        // Smoothly close mobile navigation after selecting a section.
-        document.querySelectorAll("nav a").forEach(link => {
-            link.addEventListener("click", () => {
-                if (window.innerWidth <= 800) {
-                    document.querySelector("nav").style.display = "none";
-                }
-            });
-        });
-    </script>
+    toast.style.display = "block";
+    this.reset();
+    setTimeout(() => toast.style.display = "none", 3500);
+  });
+</script>
 </body>
-
+</html>
