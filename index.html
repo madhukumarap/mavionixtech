@@ -757,6 +757,43 @@
       letter-spacing:0.5px;
     }
 
+    /* ---- TRUSTED CUSTOMERS ---- */
+    .trusted-customers{background:var(--bg-dark);position:relative;overflow:hidden}
+    .trusted-customer-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;
+      max-width:850px;margin:0 auto;
+    }
+    .trusted-customer{
+      min-height:190px;display:flex;align-items:center;justify-content:center;
+      flex-direction:column;text-align:center;gap:12px;padding:32px;
+      background:linear-gradient(145deg,var(--bg-card),rgba(17,24,39,.72));
+      border:1px solid var(--border-subtle);border-radius:var(--radius);
+      transition:transform .4s,border-color .4s,box-shadow .4s,background .4s;
+      position:relative;overflow:hidden;
+    }
+    .trusted-customer::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      opacity:0;transition:opacity .4s;
+    }
+    .trusted-customer:hover{
+      transform:translateY(-7px);border-color:var(--border-hover);
+      box-shadow:var(--shadow-gold);background:var(--bg-card-hover);
+    }
+    .trusted-customer:hover::before{opacity:1}
+    .trusted-customer-mark{
+      width:64px;height:64px;display:grid;place-items:center;border-radius:18px;
+      border:1px solid rgba(201,168,108,.28);
+      background:rgba(201,168,108,.07);color:var(--gold-light);
+      font-size:25px;font-weight:800;letter-spacing:-1px;
+    }
+    .trusted-customer h3{font-size:20px;color:var(--text-primary);font-weight:700}
+    .trusted-customer p{font-size:12px;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase}
+    @media(max-width:620px){
+      .trusted-customer-grid{grid-template-columns:1fr}
+      .trusted-customer{min-height:165px}
+    }
+
     /* ---- PINGO ---- */
     .pingo{
       position:relative;overflow:hidden;
@@ -1176,6 +1213,17 @@
       top:-10vh;z-index:9998;pointer-events:none;
       animation:confettiFall 3s ease-in forwards;
     }
+.trusted-customer {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.trusted-customer:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
   </style>
 </head>
 
@@ -1200,6 +1248,7 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#work">Our Work</a>
+      <a href="#trusted-customers">Trusted Customers</a>
       <a href="#technologies">Technologies</a>
       <a href="#contact" class="nav-cta">Start a Project</a>
     </nav>
@@ -1369,14 +1418,14 @@
         </article>
 
         <article class="card reveal">
-          <div class="card-top"><h3>Sir G vedic(Astro Pandit Talk)</h3><span class="tag">Client Project</span></div>
+          <div class="card-top"><h3>Sri G vedic(Astro Pandit Talk)</h3><span class="tag">Client Project</span></div>
           <p>Development and maintenance engagement covering an Android application and web applications.</p>
           <ul><li>Android application</li><li>Web applications</li><li>Feature development</li><li>Maintenance and production support</li></ul>
           <a href="#contact" class="btn secondary">Discuss a Similar Project →</a>
         </article>
 
         <article class="card reveal">
-          <div class="card-top"><h3>Sir G vedic(Astro User)</h3><span class="tag">Client Project</span></div>
+          <div class="card-top"><h3>Sri G vedic(Astro User)</h3><span class="tag">Client Project</span></div>
           <p>Application ecosystem development across Android and web with ongoing feature delivery and support.</p>
           <ul><li>Android application</li><li>Web application</li><li>Feature development</li><li>Maintenance and support</li></ul>
           <a href="#contact" class="btn secondary">Discuss a Similar Project →</a>
@@ -1403,6 +1452,44 @@
           <a href="#contact" class="btn secondary">Discuss the Project →</a>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="trusted-customers" id="trusted-customers">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Trusted Customers</div>
+        <h2>Building meaningful partnerships.</h2>
+        <p>We’re proud to work with organizations that trust us to support their digital goals.</p>
+      </div>
+
+    
+<div class="trusted-customer-grid">
+  <a
+    href="https://srigvedic.com/"
+    class="trusted-customer reveal"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Sri G Vedic website"
+  >
+    <div class="trusted-customer-mark" aria-hidden="true">SG</div>
+    <h3>Sri G Vedic</h3>
+    <p>Trusted Customer</p>
+  </a>
+
+  <a
+    href="https://www.sparktechinnovation.com/"
+    class="trusted-customer reveal"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Spark Institutions website"
+  >
+    <div class="trusted-customer-mark" aria-hidden="true">SI</div>
+    <h3>Spark Institutions</h3>
+    <p>Trusted Customer</p>
+  </a>
+</div>
+
     </div>
   </section>
 
