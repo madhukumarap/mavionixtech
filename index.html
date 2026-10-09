@@ -630,36 +630,217 @@ section{position:relative;padding:140px 0}
 .api-body .key{color:var(--gold-2)}
 .api-body .str{color:#c9e5b5}
 
-/* ============ TECH GRID ============ */
-.tech-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
+/* ============ TECH STACK (layered architecture) ============ */
+.stack-wrap{
+  margin-top:80px;
+  position:relative;
 }
-@media(max-width:900px){.tech-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.tech-grid{grid-template-columns:1fr}}
-.tech-cell{
-  padding:44px 32px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  transition:background .4s;
-  min-height:220px;
-  display:flex;flex-direction:column;justify-content:space-between;
+
+.stack-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:24px;
+  align-items:center;
+  position:relative;
 }
-.tech-cell:hover{background:var(--ink-2)}
-.tech-cell h4{
-  font-family:var(--mono);font-size:11px;
-  letter-spacing:.2em;color:var(--gold);
-  text-transform:uppercase;margin-bottom:24px;
+
+.stack-label{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--bone-faint);
+  text-transform:uppercase;
+  transition:color .4s var(--ease);
 }
-.tech-cell ul{list-style:none}
-.tech-cell li{
-  font-size:15px;color:var(--bone-dim);
-  padding:5px 0;line-height:1.6;
-  transition:color .3s,transform .3s var(--ease);
+
+.stack-label .idx{
+  color:var(--gold);
+  font-weight:500;
+  flex-shrink:0;
 }
-.tech-cell:hover li{color:var(--bone)}
-.tech-cell li:hover{transform:translateX(4px);color:var(--gold)}
+
+.stack-label b{
+  font-weight:500;
+  color:inherit;
+  letter-spacing:.2em;
+}
+
+.stack-row:hover .stack-label{
+  color:var(--gold);
+}
+
+.stack-shelf{
+  position:relative;
+  padding:30px 36px;
+  background:var(--ink-2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 26px;
+  align-items:center;
+  transition:all .55s var(--ease);
+  overflow:hidden;
+}
+
+.stack-shelf::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(212,177,112,.07),
+    transparent 45%
+  );
+  opacity:0;
+  transition:opacity .5s;
+  pointer-events:none;
+}
+.stack-shelf:hover::before{opacity:1}
+
+.stack-shelf::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:60px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:0;
+  transition:opacity .5s,width .6s var(--ease);
+}
+.stack-shelf:hover::after{
+  opacity:.8;
+  width:140px;
+}
+
+.stack-shelf:hover{
+  border-color:var(--line-strong);
+  background:var(--ink-3);
+  transform:translateX(8px);
+  box-shadow:-20px 20px 60px -30px rgba(212,177,112,.15);
+}
+
+.stack-chip{
+  font-size:15px;
+  color:var(--bone-dim);
+  font-weight:400;
+  letter-spacing:-.005em;
+  position:relative;
+  transition:color .3s,transform .4s var(--ease);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  cursor:default;
+}
+
+.stack-chip::before{
+  content:'';
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:.25;
+  transition:opacity .3s,box-shadow .3s,transform .3s;
+  flex-shrink:0;
+}
+
+.stack-chip:hover{
+  color:var(--bone);
+  transform:translateX(2px);
+}
+.stack-chip:hover::before{
+  opacity:1;
+  box-shadow:0 0 10px var(--gold);
+  transform:scale(1.4);
+}
+
+.stack-link{
+  grid-column:2;
+  height:36px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  padding-left:36px;
+}
+.stack-link::before{
+  content:'';
+  width:1px;
+  height:100%;
+  background:linear-gradient(
+    180deg,
+    rgba(212,177,112,0) 0%,
+    rgba(212,177,112,.35) 50%,
+    rgba(212,177,112,0) 100%
+  );
+  position:relative;
+}
+.stack-link::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:calc(50% + 36px);
+  transform:translate(-50%,-50%);
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--ink);
+  border:1px solid var(--line-strong);
+  transition:all .4s var(--ease);
+}
+.stack-link:hover::after{
+  background:var(--gold);
+  box-shadow:0 0 12px var(--gold);
+}
+
+.stack-count{
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.15em;
+  color:var(--bone-faint);
+  opacity:0;
+  transition:opacity .4s,color .4s;
+}
+.stack-shelf:hover .stack-count{
+  opacity:1;
+  color:var(--gold);
+}
+
+@media (max-width:900px){
+  .stack-row{
+    grid-template-columns:110px 1fr;
+    gap:16px;
+  }
+  .stack-shelf{
+    padding:24px 24px;
+    gap:6px 20px;
+  }
+  .stack-chip{font-size:14px;}
+  .stack-shelf:hover{transform:translateX(4px);}
+  .stack-shelf:hover .stack-count{opacity:0;}
+}
+
+@media (max-width:620px){
+  .stack-row{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .stack-label{padding-left:4px;}
+  .stack-link{
+    grid-column:1;
+    padding-left:0;
+    height:28px;
+  }
+  .stack-link::after{left:50%;}
+  .stack-shelf{padding:22px;}
+  .stack-count{display:none;}
+}
 
 /* ============ PROCESS ============ */
 .process-list{
@@ -1082,7 +1263,7 @@ footer{
         <div>
           <h3 class="bento-title">Mobile Development</h3>
           <p class="bento-desc">Modern Android and cross-platform apps with reliable backend integration.</p>
-          <div class="bento-tags"><span>Flutter</span><span>React Native</span></div>
+          <div class="bento-tags"><span>Flutter</span><span>React Native</span><span>Android</span></div>
         </div>
       </article>
 
@@ -1137,6 +1318,8 @@ footer{
     <div class="marquee-item">Python</div>
     <div class="marquee-item">AWS</div>
     <div class="marquee-item">Flutter</div>
+    <div class="marquee-item">React Native</div>
+    <div class="marquee-item">Android</div>
     <div class="marquee-item">PostgreSQL</div>
     <div class="marquee-item">MongoDB</div>
     <div class="marquee-item">FastAPI</div>
@@ -1145,6 +1328,8 @@ footer{
     <div class="marquee-item">Python</div>
     <div class="marquee-item">AWS</div>
     <div class="marquee-item">Flutter</div>
+    <div class="marquee-item">React Native</div>
+    <div class="marquee-item">Android</div>
     <div class="marquee-item">PostgreSQL</div>
     <div class="marquee-item">MongoDB</div>
     <div class="marquee-item">FastAPI</div>
@@ -1296,7 +1481,8 @@ footer{
   </div>
 </section>
 
-<!-- ============ TECH ============ -->
+<!-- ============ TECH STACK (layered architecture) ============ -->
+<!-- ============ TECH STACK (layered architecture) ============ -->
 <section id="technologies">
   <div class="wrap">
     <div class="sec-label reveal">04 — Our Stack</div>
@@ -1308,35 +1494,115 @@ footer{
       maintainability and deployment environment.
     </p>
 
-    <div class="tech-grid reveal" style="margin-top:80px">
-      <div class="tech-cell">
-        <h4>Frontend</h4>
-        <ul>
-          <li>React</li><li>Vite</li>
-          <li>HTML · CSS · JS</li><li>Responsive UI</li>
-        </ul>
+    <div class="stack-wrap">
+
+      <!-- Layer 01 — Frontend -->
+      <div class="stack-row reveal">
+        <div class="stack-label">
+          <span class="idx">/ 01</span>
+          <b>Frontend</b>
+        </div>
+        <div class="stack-shelf" data-glow>
+          <span class="stack-chip">React</span>
+          <span class="stack-chip">Angular</span>
+          <span class="stack-chip">HTML</span>
+          <span class="stack-chip">CSS</span>
+          <span class="stack-chip">JavaScript</span>
+          <span class="stack-chip">Responsive UI</span>
+          <span class="stack-count">06</span>
+        </div>
       </div>
-      <div class="tech-cell">
-        <h4>Backend</h4>
-        <ul>
-          <li>Node.js</li><li>Express</li>
-          <li>Python · FastAPI</li><li>REST APIs</li>
-        </ul>
+
+      <div class="stack-link" aria-hidden="true"></div>
+
+      <!-- Layer 02 — Mobile -->
+      <div class="stack-row reveal" data-delay="1">
+        <div class="stack-label">
+          <span class="idx">/ 02</span>
+          <b>Mobile</b>
+        </div>
+        <div class="stack-shelf" data-glow>
+          <span class="stack-chip">Flutter</span>
+          <span class="stack-chip">React Native</span>
+          <span class="stack-chip">Android</span>
+          <span class="stack-chip">Kotlin</span>
+          <span class="stack-chip">Java</span>
+          <span class="stack-count">05</span>
+        </div>
       </div>
-      <div class="tech-cell">
-        <h4>Data</h4>
-        <ul>
-          <li>MySQL</li><li>PostgreSQL</li>
-          <li>MongoDB</li><li>Integrations</li>
-        </ul>
+
+      <div class="stack-link" aria-hidden="true"></div>
+
+      <!-- Layer 03 — Backend -->
+      <div class="stack-row reveal" data-delay="2">
+        <div class="stack-label">
+          <span class="idx">/ 03</span>
+          <b>Backend</b>
+        </div>
+        <div class="stack-shelf" data-glow>
+          <span class="stack-chip">Node.js</span>
+          <span class="stack-chip">Express</span>
+          <span class="stack-chip">Python</span>
+          <span class="stack-chip">FastAPI</span>
+          <span class="stack-chip">REST APIs</span>
+          <span class="stack-count">05</span>
+        </div>
       </div>
-      <div class="tech-cell">
-        <h4>Cloud</h4>
-        <ul>
-          <li>AWS</li><li>Linux</li>
-          <li>Nginx</li><li>CI / CD</li>
-        </ul>
+
+      <div class="stack-link" aria-hidden="true"></div>
+
+      <!-- Layer 04 — Data -->
+      <div class="stack-row reveal" data-delay="3">
+        <div class="stack-label">
+          <span class="idx">/ 04</span>
+          <b>Data</b>
+        </div>
+        <div class="stack-shelf" data-glow>
+          <span class="stack-chip">MySQL</span>
+          <span class="stack-chip">PostgreSQL</span>
+          <span class="stack-chip">MongoDB</span>
+          <span class="stack-chip">Integrations</span>
+          <span class="stack-count">04</span>
+        </div>
       </div>
+
+      <div class="stack-link" aria-hidden="true"></div>
+
+      <!-- Layer 05 — AI & ML -->
+      <div class="stack-row reveal" data-delay="4">
+        <div class="stack-label">
+          <span class="idx">/ 05</span>
+          <b>AI &amp; ML</b>
+        </div>
+        <div class="stack-shelf" data-glow>
+          <span class="stack-chip">OpenAI</span>
+          <span class="stack-chip">LangChain</span>
+          <span class="stack-chip">Python</span>
+          <span class="stack-chip">TensorFlow</span>
+          <span class="stack-chip">RAG Pipelines</span>
+          <span class="stack-chip">Vector DBs</span>
+          <span class="stack-count">06</span>
+        </div>
+      </div>
+
+      <div class="stack-link" aria-hidden="true"></div>
+
+      <!-- Layer 06 — Cloud -->
+      <div class="stack-row reveal" data-delay="5">
+        <div class="stack-label">
+          <span class="idx">/ 06</span>
+          <b>Cloud</b>
+        </div>
+        <div class="stack-shelf" data-glow>
+          <span class="stack-chip">AWS</span>
+          <span class="stack-chip">Linux</span>
+          <span class="stack-chip">Nginx</span>
+          <span class="stack-chip">CI / CD</span>
+          <span class="stack-chip">PM2</span>
+          <span class="stack-count">05</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1542,7 +1808,7 @@ footer{
   }
   loop();
 
-  document.querySelectorAll('a, button, input, textarea, select, .bento-item, .work-card, .cust-card').forEach(el=>{
+  document.querySelectorAll('a, button, input, textarea, select, .bento-item, .work-card, .cust-card, .stack-shelf, .stack-chip').forEach(el=>{
     el.addEventListener('mouseenter', ()=>ring.classList.add('hover'));
     el.addEventListener('mouseleave', ()=>ring.classList.remove('hover'));
   });
@@ -1554,6 +1820,15 @@ document.querySelectorAll('.bento-item').forEach(item=>{
     const r = item.getBoundingClientRect();
     item.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100) + '%');
     item.style.setProperty('--my', ((e.clientY - r.top)/r.height*100) + '%');
+  });
+});
+
+/* ============ STACK SHELF CURSOR GLOW ============ */
+document.querySelectorAll('[data-glow]').forEach(shelf => {
+  shelf.addEventListener('mousemove', e => {
+    const r = shelf.getBoundingClientRect();
+    shelf.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    shelf.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
   });
 });
 
@@ -1601,7 +1876,6 @@ const cio = new IntersectionObserver((entries)=>{
     if(e.isIntersecting){
       const el = e.target;
       const target = parseInt(el.dataset.count,10);
-      const sup = el.querySelector('sup');
       let cur = 0;
       const step = Math.max(1, Math.floor(target/30));
       const t = setInterval(()=>{
@@ -1685,7 +1959,6 @@ function confetti(){
     setTimeout(()=>p.remove(), 4500);
   }
 }
-// add keyframes dynamically if not present
 const styleEl = document.createElement('style');
 styleEl.textContent = `@keyframes confettiFall{0%{transform:translateY(-10vh) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}`;
 document.head.appendChild(styleEl);
